@@ -85,7 +85,7 @@ theme_mode: # [light | dark]
 # will be added to all image (site avatar & posts' images) paths starting with '/'
 #
 # e.g. 'https://cdn.com'
-img_cdn: https://cdn.jsdelivr.net/gh/BeA-Pro/BeA-Pro.github.io@tree/main"
+img_cdn: "https://cdn.jsdelivr.net/gh/BeA-Pro/BeA-Pro.github.io@main"
 
 # https://cdn.jsdelivr.net/gh/BeA-Pro/BeA-Pro.github.io@tree/main/assets/img
 
