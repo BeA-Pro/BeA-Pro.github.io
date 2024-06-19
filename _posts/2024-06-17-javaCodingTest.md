@@ -5,7 +5,7 @@ date: 2024-06-16 13:53:00 +0900
 categories: [Java]
 tags: [Java]
 image:
-  path: /assets/img/blog/java.png
+  path: /assets/img/title-image/java.png
   alt: deepdive
 ---
 ## **최댓값, 최솟값 구하기**
