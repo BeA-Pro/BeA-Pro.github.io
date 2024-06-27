@@ -31,7 +31,7 @@ int maxValue = Integer.MAX_VALUE;
 int minValue = Integer.MIN_VALUE;
 ```
 
-## **정렬 기준 커스컴**
+## **Sort 정렬 기준 커스컴**
 `Arrays.sort` 메서드를 사용해서 정렬 할 때, 정렬 기준을 커스텀해야 하는 경우가 발생한다.
 이 경우에는 `Comparator`에 `compare`메서드를 조건에 맞게 정의하면 된다.
 
@@ -48,6 +48,54 @@ Arrays.sort(data,new Comparator<int []>(){
   }
 });
 ```
+
+## **우선순위 큐**
+
+```java
+// 선언 방법
+PriorityQueue<Integer> pq = new PrirorityQueue<>();
+
+// 더하는 법
+pq.add(10);
+
+// 상위 값 확인하는 법
+System.out.println(pq.peek());
+
+// 요소 제거하는 법
+System.out.println(pq.poll());
+```
+사용자가 선언한 클래스를 값으로 받는 경우 `Comparator`를 우선순위를 커스텀해줘야 한다.
+```java
+class Person {
+    String name;
+    int age;
+
+    Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    @Override
+    public String toString() {
+        return name + " (" + age + ")";
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        // 나이 순으로 정렬하는 Comparator
+        Comparator<Person> ageComparator = new Comparator<Person>() {
+            @Override
+            public int compare(Person p1, Person p2) {
+                return Integer.compare(p1.age, p2.age);
+            }
+        };
+        PriorityQueue<Person> pq = new PriorityQueue<>(ageComparator);
+    }
+}
+```
+
+
 
 
 ## **입력 빠르게 받기**
