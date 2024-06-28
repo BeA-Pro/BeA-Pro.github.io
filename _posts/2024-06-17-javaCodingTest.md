@@ -8,6 +8,7 @@ image:
   path: /assets/img/title-image/java.png
   alt: deepdive
 ---
+
 ## **절댓값 구하기**
 `Math.abs`를 사용하여 숫자의 절댓값을 구할 수 있다.
 
@@ -31,12 +32,13 @@ int maxValue = Integer.MAX_VALUE;
 int minValue = Integer.MIN_VALUE;
 ```
 
-## **Sort 정렬 기준 커스컴**
+## **Sort 정렬 기준 커스텀**
 `Arrays.sort` 메서드를 사용해서 정렬 할 때, 정렬 기준을 커스텀해야 하는 경우가 발생한다.
 이 경우에는 `Comparator`에 `compare`메서드를 조건에 맞게 정의하면 된다.
 
 ```java
 // 이차원 배열의 각 행을 조건에 맞게 배열하는 경우
+// 배열 []
 Arrays.sort(data,new Comparator<int []>(){
   @Override
   public int compare(int[] o1, int[] o2){
@@ -47,6 +49,10 @@ Arrays.sort(data,new Comparator<int []>(){
       }
   }
 });
+
+// Collections
+Collections.sort(list, (a, b) -> b - a);
+
 ```
 
 ## **우선순위 큐**
@@ -93,6 +99,11 @@ public class Main {
         PriorityQueue<Person> pq = new PriorityQueue<>(ageComparator);
     }
 }
+```
+
+람다식을 이용하는 법도 있다.
+```java
+PriorityQueue<Integer> pq = new PriorityQueue<>((a, b) -> b - a);
 ```
 
 
