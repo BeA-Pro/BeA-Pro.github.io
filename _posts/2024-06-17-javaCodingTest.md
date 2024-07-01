@@ -2,7 +2,7 @@
 title: 자바 코딩 테스트 기술 정리
 author: BeAPro
 date: 2024-06-16 13:53:00 +0900
-categories: [Java]
+categories: [Study,알고리즘]
 tags: [Java]
 image:
   path: /assets/img/title-image/java.png
