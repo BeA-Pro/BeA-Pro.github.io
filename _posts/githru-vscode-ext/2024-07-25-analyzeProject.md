@@ -5,8 +5,8 @@ date: 2024-07-25 16:00:00 +0900
 categories: [Githru-vscode-ext]
 tags: [Githru-vscode-ext, OSSCA]
 image:
-  path: /assets/img/title-image/javaBasic.png
-  alt: javaBasic
+  path: /assets/img/title-image/githru.png
+  alt: githru
 ---
 ## **Githru-vscode-ext란?**
 
@@ -14,7 +14,7 @@ image:
 
 Githru-vscode-ext는 GitHub의 복잡한 commit 히스토리를 **Stem**, **Context Preserving Squash Merge**, **Commit Clustering** 기법을 사용하여 단순화하여 시각적 분석을 도와주는 VSCode 익스텐션이다.
 
-Github 링크 : https://github.com/githru
+Github 링크 : <https://github.com/githru>
 
 ### Stem
 Stem은 Git 저장소의 DAG(Directed Acyclic Graph) 표현을 간소화하기 위한 개념이다.
@@ -54,3 +54,7 @@ CSM이 여러 Stem간의 정보를 축약했다면 Commit Clustering은 단일 S
 
 > Githru에는 CSM까지만 적용되었다. Commit Clustering은 [데모 사이트](https://githru.github.io/realm-java-demo/)에서 확인 할 수 있다.
 {: prompt-info}
+
+
+## **Githru-vscode-ext 코드 분석**
+
