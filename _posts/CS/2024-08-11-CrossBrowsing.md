@@ -1,0 +1,71 @@
+---
+title: Cross Browsing
+author: BeAPro
+date: 2024-08-11 15:00:00 +0900
+categories: [Study,Computer Science]
+tags: [Cross Browsing,Web,Computer Science]
+image:
+  path: /assets/img/title-image/computerScience.png
+  alt: computerScience
+---
+
+## **Cross Browsing이란?**
+크로스 브라우징(Cross-Browsing)은 웹 개발에서 웹사이트나 웹 애플리케이션이 다양한 웹 브라우저에서 일관되게 동작하도록 하는 것을 의미한다. 각 웹 브라우저는 HTML, CSS, JavaScript 등의 웹 기술을 해석하고 렌더링하는 방식이 조금씩 다를 수 있기 때문에, 특정 브라우저에서는 정상적으로 작동하는 웹 페이지가 다른 브라우저에서는 문제를 일으킬 수 있다.
+
+크로스 브라우징의 목적은 이러한 문제를 최소화하여, 사용자가 어떤 브라우저를 사용하든 동일한 경험을 제공하는 것이다. 이를 위해 웹 개발자들은 다양한 브라우저(예: Chrome, Firefox, Safari, Edge 등)에서 웹 페이지를 테스트하고, 브라우저 간의 차이로 인해 발생할 수 있는 호환성 문제를 해결하기 위한 방법을 사용한다.
+
+![Desktop](/assets/img/CS/2024-08-11-CrossBrowsing-01.png)
+
+중요한 것은 크로스브라우징이 모든 브라우저에서 '100% 똑같이' 보이도록 만드는 '동일성'이 아닌, '동등성(등가성)'을 의미한다는 것이다. 크로스브라우징은 특정 브라우저/기기 환경에 최적화되지 않고, 공통 요소를 사용하여 웹 페이지를 제작하는 기법으로 다양한 환경으로부터 동등한 수준의 정보, 기능 접근이 가능하도록 하는 것에 초점을 맞춘다.
+
+## **크로스 브라우징을 위한 기법**
+
+### 1. 표준 준수 코드 작성
+
+웹 표준은 웹 기술의 호환성과 일관성을 보장하기 위해 W3C(월드 와이드 웹 컨소시엄)에서 정한 규칙이다. HTML, CSS, JavaScript 등은 모두 특정 표준을 따른다. 웹 표준을 준수하여 코드를 작성하면, 다양한 브라우저에서 코드를 올바르게 해석하고 렌더링할 가능성이 높아진다.
+
+- HTML5: 현대 웹 개발에서 사용되는 HTML 표준으로, 문서의 구조와 콘텐츠를 정의한다. HTML5를 준수하여 코드를 작성하면 더 많은 브라우저에서 일관된 동작을 기대할 수 있다.
+- CSS3: 최신 CSS 표준으로, 스타일과 레이아웃을 정의한다. CSS3는 모던 브라우저에서 널리 지원되며, 이를 준수하면 스타일링 호환성이 높아진다.
+- ES6+: 최신 자바스크립트 표준(ECMAScript 6 이상)으로, 모던 브라우저에서 지원되는 자바스크립트의 문법과 기능들을 사용하면 코드의 호환성을 높일 수 있다.
+
+
+### 2. 폴리필(Polyfill) 사용
+
+폴리필은 기본적으로 지원하지 않는 이전 브라우저에서 최신 기능을 제공하는 데 필요한 코드 (일반적으로 웹의 JavaScript)이다. 예를 들어, 최신 자바스크립트 문법이나 API를 사용하고 싶지만, 이를 지원하지 않는 브라우저를 위해 폴리필을 추가할 수 있다.
+
+```js
+// 예시
+const array = [1, 2, 3, 4, 5];
+
+console.log(array.includes(3)); // true
+console.log(array.includes(6)); // false
+```
+
+예를 들어 Array.prototype.includes 메서드는 ES6에서 추가된 기능이다. 이를 지원하지 않는 구형 브라우저에서는 폴리필을 통해 같은 기능을 제공할 수 있다.
+
+```js
+if (!Array.prototype.includes) {
+  Array.prototype.includes = function(searchElement, fromIndex) {
+    // fromIndex가 없거나 0보다 작은 경우 0으로 설정
+    if (fromIndex == null) {
+      fromIndex = 0;
+    } else {
+      fromIndex = Math.max(fromIndex, 0);
+    }
+
+    // 배열의 각 요소를 순회
+    for (let i = fromIndex; i < this.length; i++) {
+      // NaN도 포함 여부를 정확히 체크하기 위해
+      if (this[i] === searchElement || (searchElement !== searchElement && this[i] !== this[i])) {
+        return true;
+      }
+    }
+    return false;
+  };
+}
+```
+
+이와 같은 개별 폴리필을 일일이 작성하는 대신, core-js, babel-polyfill 같은 라이브러리를 사용하면 수많은 폴리필을 손쉽게 관리하고 적용할 수 있다. 이러한 라이브러리는 자주 사용되는 최신 자바스크립트 기능들을 포함하고 있어, 다양한 기능을 구형 브라우저에서도 사용할 수 있게 도와준다.
+
+- core-js: 모듈화된 폴리필 라이브러리로, 필요한 폴리필만 선택적으로 사용할 수 있다.
+- babel-polyfill: Babel 트랜스파일러와 함께 사용되며, 최신 자바스크립트 문법과 기능을 구형 브라우저에서도 사용할 수 있도록 해준다.
