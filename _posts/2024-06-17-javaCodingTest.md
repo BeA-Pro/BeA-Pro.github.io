@@ -50,6 +50,15 @@ Arrays.sort(data,new Comparator<int []>(){
   }
 });
 
+// String 비교
+Arrays.sort(data,new Comparator<String>(){
+  @Override
+  public int compare(String a, String b){
+      // 내림차순(사전순 역순)
+      return b.compareTo(a);
+  }
+});
+
 // Collections
 Collections.sort(list, (a, b) -> b - a);
 
